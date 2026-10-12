@@ -36,7 +36,12 @@ header{
     border-radius:10px;
     box-shadow:0 0 10px rgba(0,0,0,.2);
 }
-
+.card:hover{
+    transform:translateY(-5px);
+    transition:0.3s;
+    background:#edffad;
+    color:#c53636;
+}
 .card img{
     width:150px;
     height:150px;
@@ -86,9 +91,11 @@ button:hover{
 .weather-card{
     margin-top:20px;
     padding:20px;
-    background:#f8f9fa;
+    background:#87bbee;
     border-radius:10px;
+    
 }
+
 
 #result{
     margin-top:20px;
