@@ -42,27 +42,88 @@ async function getWeather(){
         <div class="weather-card">
              <style>
                 .weather-card {
-                    background-color: #201818;
-                    border: 1px solid #131111;
+                    position: relative;
+                    background-color: #000000fa;
+                    border: 2px solid #0b883b;
                     padding: 20px;
                     margin: 20px 0;
+                    color: #b8b8a2;
+                    text-align: left;
+                    border-radius: 20px;
+                    box-sizing: border-box;
+                    overflow-wrap: break-word;
+                }
+
+                .weather-card img {
+                    position: absolute;
+                    top: 70px;
+                    right: 80px;
+                    width: 150px;
+                    height: 140px;
+                    object-fit: contain;
+
+                    animation: weatherGlow 2s ease-in-out infinite;
+                }
+
+                @keyframes weatherGlow {
+                    0%, 100% {
+                        filter: drop-shadow(0 0 5px #ffffff);
+                    }
+
+                    50% {
+                        filter: drop-shadow(0 0 20px #fcfff0);
+                    }
+                }
+
+                .weather-temp {
+                    font-size: 70px;
                     color: #a7ca09;
                 }
-                
-                .weather-card img {
-                    width: 100px;
-                    height: 100px;
-                    object-fit: contain;
-                    opacity: 1;
-                    filter: none;
+
+                /* Phone responsiveness */
+                @media (max-width: 600px) {
+                    .weather-card {
+                        padding: 15px;
+                        margin: 15px 0;
+                    }
+
+                    .weather-card img {
+                        top: 65px;
+                        right: 10px;
+                        width: 85px;
+                        height: 85px;
+                    }
+
+                    .weather-temp {
+                        font-size: 45px;
+                    }
+
+                    .weather-card h1 {
+                        font-size: 32px;
+                    }
+
+                    .weather-card h2 {
+                        font-size: 22px;
+                    }
+
+                    .weather-card h3 {
+                        font-size: 18px;
+                    }
+
+                    .weather-card p {
+                        font-size: 14px;
+                        overflow-wrap: anywhere;
+                    }
                 }
-            </style>
+                </style>
+             <h3>${new Intl.DisplayNames(['en'], { type: 'region' }).of(data.sys.country)}</h3>
+            <p>Weather Recorded (Local Time)as of: </p>
+            <p>${weatherTime}</p>
+
             <h2>${data.name}</h2>
 
-            <h3>${new Intl.DisplayNames(['en'], { type: 'region' }).of(data.sys.country)}</h3>
-            <p>Weather Recorded (Local Time)as of: ${weatherTime}</p>
-
-            <h1>${data.main.temp}°C</h1>
+           
+            <h1 class="weather-temp">${data.main.temp}°C</h1>
 
          <img
                 src="https://openweathermap.org/img/wn/${iconCode}@2x.png"

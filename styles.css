@@ -6,7 +6,12 @@
 }
 
 body{
-    background:#f4f7fc;
+    background:#eef0f3;
+}
+
+.app-body {
+     background:linear-gradient(to right, #244f7ab7, #00ffddfb);
+
 }
 
 header{
@@ -58,21 +63,42 @@ header{
     border-radius:5px;
 }
 
-.container{
-    width:90%;
-    max-width:600px;
-    margin:50px auto;
-    background:white;
-    padding:30px;
-    text-align:center;
-    border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,.2);
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,.2);
+
+    border: 2px solid #00bfff;
+    animation: glowing 3s ease-in-out infinite;
+}
+
+@keyframes glowing {
+    0% {
+        border-color: #c5e048;
+        box-shadow: 0 0 10px #b8fa4d;
+    }
+
+    50% {
+        border-color: #00ff88;
+        box-shadow: 0 0 25px #00ff88;
+    }
+
+    100% {
+        border-color: #00bfff;
+        box-shadow: 0 0 10px #00bfff;
+    }
 }
 
 input{
     width:100%;
     padding:12px;
     margin:15px 0;
+    border-radius:20px;
 }
 
 button{
